@@ -1,14 +1,22 @@
-# package-seed-simplify
+# package-seed-lib
 
-基于typescript来构建包，加入jest测试，最终发布到npm的种子项目
+publish js lib to npm use typescript
+
+Use Jest to test
+
+Package with rollup to satisfies multiple package formats
 
 
-## 使用方式
+## quick start
 
 ```bash
-# 构建项目
+# dev
+yarn dev
+
+# test
+yarn test
+
+# build
 yarn build
 
-# 运行测试环境
-yarn test
 ```

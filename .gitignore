@@ -59,6 +59,8 @@ typings/
 
 # Release path
 dist
+es
+lib
 
 # jsdoc output
 out
