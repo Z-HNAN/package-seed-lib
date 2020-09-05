@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-const babel = require('rollup-plugin-babel');
-const commonjs = require('rollup-plugin-commonjs');
-const { nodeResolve } = require('@rollup/plugin-node-resolve');
-const rollupTypescript = require('rollup-plugin-typescript2');
-const { terser } = require('rollup-plugin-terser');
-const merge = require('lodash.merge');
-const pkg = require('./package.json');
+import path from 'path';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import rollupTypescript from 'rollup-plugin-typescript2';
+import { terser } from 'rollup-plugin-terser';
+import merge from 'lodash.merge';
+import pkg from './package.json';
 
 const extensions = ['.js', '.ts'];
 
@@ -36,6 +35,7 @@ const jobs = {
       file: resolve(pkg.unpkg),
       name: 'rem',
     },
+    // plugins: [nodeResolve({ extensions })]
   },
   min: {
     output: {
@@ -43,6 +43,7 @@ const jobs = {
       file: resolve(pkg.unpkg.replace(/(.\w+)$/, '.min$1')),
       name: 'rem',
     },
+    // plugins: [nodeResolve({ extensions }), terser()],
     plugins: [terser()],
   },
 };
@@ -55,16 +56,13 @@ module.exports = merge(
     input: resolve('./src/index.ts'),
     output: {},
     plugins: [
-      nodeResolve({
-        extensions,
-        modulesOnly: true,
-      }),
       rollupTypescript({
         useTsconfigDeclarationDir: true,
         tsconfig: './tsconfig.json',
       }),
       babel({
         exclude: 'node_modules/**',
+        babelHelpers: 'runtime',
         extensions,
       }),
       commonjs({}),

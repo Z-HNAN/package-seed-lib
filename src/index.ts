@@ -6,5 +6,8 @@ export default function hello(name: string): string {
   });
   console.log(res);
 
+  const str = 'abcd';
+  console.log(str.includes('a'));
+
   return `hello ${name}`;
 }
