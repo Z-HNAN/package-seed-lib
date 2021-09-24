@@ -1,10 +1,10 @@
 # package-seed-lib
 
-publish js lib to npm use typescript
+publish ts lib to npm use typescript
 
 Use Jest to test
 
-Package with rollup to satisfies multiple package formats
+Package with rollup
 
 
 ## quick start
