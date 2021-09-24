@@ -1,9 +1,9 @@
 {
   "name": "package-seed-lib",
   "version": "1.0.0",
-  "description": "publish js lib to npm use typescript. Package with rollup to satisfies multiple package formats",
+  "description": "publish ts lib",
   "license": "MIT",
-  "repository": "github:reduxjs/redux",
+  "repository": "",
   "keywords": [],
   "author": "",
   "main": "lib/index.js",

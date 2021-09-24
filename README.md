@@ -1,6 +1,6 @@
 # package-seed-lib
 
-publish ts lib to npm use typescript
+publish ts lib
 
 Use Jest to test
 
