@@ -22,7 +22,7 @@
   "scripts": {
     "clean": "rimraf ./lib ./dist ./es ./coverage ./types",
     "lint": "eslint --ext js,ts src tests",
-    "check-types": "tsc --noEmit",
+    "check-types": "tsc --build tsconfig.lint.json",
     "dev": "rollup -w -c",
     "test": "jest --config jest.config.json",
     "test:watch": "jest --watch --config jest.config.json",
@@ -55,14 +55,16 @@
     "babel-jest": "^27.0.0",
     "cross-env": "^7.0.2",
     "eslint": "^7.26.0",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "glob": "^7.1.6",
+    "husky": "^7.0.4",
     "jest": "^27.0.0",
+    "lint-staged": "^12.0.2",
     "netlify-plugin-cache": "^1.0.3",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
@@ -72,5 +74,20 @@
     "rxjs": "^7.3.0",
     "ts-jest": "^27.0.4",
     "typescript": "^4.3.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "npm run lint",
+      "npm run check-types"
+    ],
+    "tests/**/*": [
+      "npm run lint",
+      "npm run check-types"
+    ]
   }
 }
