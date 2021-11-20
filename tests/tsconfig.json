@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "references": [
+    {
+      "path": ".."
+    }
+  ],
+  "compilerOptions": {
+    "types": [
+      "jest"
+    ],
+    "rootDir": "..",
+    "noEmit": true
+  },
+  "include": [
+    "."
+  ]
+}
