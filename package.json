@@ -62,7 +62,7 @@
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "glob": "^7.1.6",
-    "husky": "^7.0.4",
+    "husky": "4.2.5",
     "jest": "^27.0.0",
     "lint-staged": "^12.0.2",
     "netlify-plugin-cache": "^1.0.3",
@@ -77,17 +77,17 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint",
-      "npm run check-types"
+      "eslint -ext ts,js",
+      "tsc --noEmit --allowJs"
     ],
     "tests/**/*": [
-      "npm run lint",
-      "npm run check-types"
+      "eslint -ext ts,js",
+      "tsc --noEmit --allowJs"
     ]
   }
 }
